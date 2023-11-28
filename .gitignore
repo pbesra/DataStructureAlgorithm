@@ -1,3 +1,5 @@
 src/algorithms/output
 src/data-structure/output
 .vscode
+src/algorithms/build
+*.exe
