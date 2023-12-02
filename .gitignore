@@ -3,3 +3,4 @@ src/data-structure/output
 .vscode
 src/algorithms/build
 *.exe
+*.o

@@ -23,8 +23,8 @@ void countingSort(vector<int>& arr, vector<int>& result){
     for(int i=1;i<countArr.size();i++){
         countArr[i]=countArr[i]+countArr[i-1];
     }
-    for(int i=0;i<arr.size();i++){
-        result[countArr[arr[i]]]=arr[i];
+    for(int i=arr.size()-1;i>=0;i--){
+        result[countArr[arr[i]]-1]=arr[i];
         countArr[arr[i]]--;
     }
 }
