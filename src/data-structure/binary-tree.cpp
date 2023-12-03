@@ -104,6 +104,16 @@ class BinaryTree{
                 return rootTemp;
             }
         }
+        Node<T>* reverseTree(Node<T>* rootTemp){
+            if(rootTemp==nullptr){
+                return rootTemp;
+            }
+            Node<T>* rootTempLeft=reverseTree(rootTemp->left);
+            Node<T>* rootTempRight=reverseTree(rootTemp->right);
+            rootTemp->left=rootTempRight;
+            rootTemp->right=rootTempLeft;
+            return rootTemp;
+        }
 
     public:
         Node<T>* root=nullptr;
@@ -137,6 +147,9 @@ class BinaryTree{
         void removeNode(T data){
             this->root=remove(data, this->root);
         }
+        void reverse(){
+            this->root=reverseTree(this->root);
+        }
 };
 
 int main()
@@ -158,7 +171,9 @@ int main()
     cout << "remove 50: " << endl;
     binaryTree->removeNode(50);
     // 1-preorder, 2-inorder, 3-postorder
-    binaryTree->print(1);
+    binaryTree->print(2);
+    binaryTree->reverse();
+    binaryTree->print(2);
     cout << "height: " << binaryTree->height() << endl;
     return 0;
 }
