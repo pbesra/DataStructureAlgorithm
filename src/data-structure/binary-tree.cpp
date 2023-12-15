@@ -6,155 +6,186 @@
 #define PRIME 1000000009
 using namespace std;
 
-template<typename T>
-class Node{
-    public:
-        T data;
-        Node<T>* left;
-        Node<T>* right;
-        Node(T _data){
-            this->data=_data;
-            this->left=nullptr;
-            this->right=nullptr;
-        }
+template <typename T>
+class Node
+{
+public:
+    T data;
+    Node<T> *left;
+    Node<T> *right;
+    Node(T _data)
+    {
+        this->data = _data;
+        this->left = nullptr;
+        this->right = nullptr;
+    }
 };
 
-template<typename T>
-class BinaryTree{
-    private:
-        Node<T>* addNode(T data, Node<T>* rootTemp){
-            if(rootTemp==nullptr){
-                return new Node<T>(data);;
-            }else if(data<rootTemp->data){
-                rootTemp->left=addNode(data, rootTemp->left);
-                return rootTemp;
-            }else if(data>=rootTemp->data){
-                rootTemp->right=addNode(data, rootTemp->right);
-                return rootTemp;
-            }
+template <typename T>
+class BinaryTree
+{
+private:
+    Node<T> *addNode(T data, Node<T> *rootTemp)
+    {
+        if (rootTemp == nullptr)
+        {
+            return new Node<T>(data);
+            ;
+        }
+        else if (data < rootTemp->data)
+        {
+            rootTemp->left = addNode(data, rootTemp->left);
             return rootTemp;
         }
-        void printNodesInorder(Node<T>* head){
-            if(head==nullptr){
-                return;
-            }
-            cout << head->data << endl;
-            printNodesInorder(head->left);
-            printNodesInorder(head->right);
-
-        }
-        void printNodesPrerder(Node<T>* head){
-            if(head==nullptr){
-                return;
-            }
-            printNodesPrerder(head->left);
-            cout << head->data << endl;
-            printNodesPrerder(head->right);
-
-        }
-        void printNodesPostrder(Node<T>* head){
-            if(head==nullptr){
-                return;
-            }
-            printNodesPostrder(head->left);
-            printNodesPostrder(head->right);
-            cout << head->data << endl;
-
-        }
-        int getHeight(Node<T>* rootTemp){
-            if(rootTemp==nullptr){
-                return -1;
-            }
-            return 1+max(getHeight(rootTemp->left),getHeight(rootTemp->right));
-        }
-        Node<T>* remove(T data, Node<T>* rootTemp){
-            if(rootTemp==nullptr){
-                return rootTemp;
-            }
-            else if(data<rootTemp->data){
-                
-                rootTemp->left=remove(data, rootTemp->left);
-                
-                return rootTemp;
-            }else if(data>rootTemp->data){
-                
-                rootTemp->right=remove(data, rootTemp->right);
-                
-                return rootTemp;
-            }
-            if(rootTemp->left==nullptr){
-                Node<T>* node=rootTemp->right;
-                delete rootTemp;
-                return node;
-            }
-            else if(rootTemp->right==nullptr){
-                Node<T>* node=rootTemp->left;
-                delete rootTemp;
-                return node;
-            }else{
-                Node<T>* node=rootTemp->right;
-                while (node->left!=nullptr)
-                {
-                    node=node->left;
-                }
-                rootTemp->data=node->data;
-                // call recursive -> node that needs to be deleted and new root
-                
-                rootTemp->right=remove(node->data, rootTemp->right);
-                return rootTemp;
-            }
-        }
-        Node<T>* reverseTree(Node<T>* rootTemp){
-            if(rootTemp==nullptr){
-                return rootTemp;
-            }
-            Node<T>* rootTempLeft=reverseTree(rootTemp->left);
-            Node<T>* rootTempRight=reverseTree(rootTemp->right);
-            rootTemp->left=rootTempRight;
-            rootTemp->right=rootTempLeft;
+        else if (data >= rootTemp->data)
+        {
+            rootTemp->right = addNode(data, rootTemp->right);
             return rootTemp;
         }
-
-    public:
-        Node<T>* root=nullptr;
-        
-        void add(T data){
-            this->root=addNode(data, this->root);
+        return rootTemp;
+    }
+    void printNodesInorder(Node<T> *head)
+    {
+        if (head == nullptr)
+        {
+            return;
         }
-        
-        void print(int order=2){
-            switch (order)
+        cout << head->data << endl;
+        printNodesInorder(head->left);
+        printNodesInorder(head->right);
+    }
+    void printNodesPrerder(Node<T> *head)
+    {
+        if (head == nullptr)
+        {
+            return;
+        }
+        printNodesPrerder(head->left);
+        cout << head->data << endl;
+        printNodesPrerder(head->right);
+    }
+    void printNodesPostrder(Node<T> *head)
+    {
+        if (head == nullptr)
+        {
+            return;
+        }
+        printNodesPostrder(head->left);
+        printNodesPostrder(head->right);
+        cout << head->data << endl;
+    }
+    int getHeight(Node<T> *rootTemp)
+    {
+        if (rootTemp == nullptr)
+        {
+            return -1;
+        }
+        return 1 + max(getHeight(rootTemp->left), getHeight(rootTemp->right));
+    }
+    Node<T> *remove(T data, Node<T> *rootTemp)
+    {
+        if (rootTemp == nullptr)
+        {
+            return rootTemp;
+        }
+        else if (data < rootTemp->data)
+        {
+
+            rootTemp->left = remove(data, rootTemp->left);
+
+            return rootTemp;
+        }
+        else if (data > rootTemp->data)
+        {
+
+            rootTemp->right = remove(data, rootTemp->right);
+
+            return rootTemp;
+        }
+        if (rootTemp->left == nullptr)
+        {
+            Node<T> *node = rootTemp->right;
+            delete rootTemp;
+            return node;
+        }
+        else if (rootTemp->right == nullptr)
+        {
+            Node<T> *node = rootTemp->left;
+            delete rootTemp;
+            return node;
+        }
+        else
+        {
+            Node<T> *node = rootTemp->right;
+            while (node->left != nullptr)
             {
-                case 1:
-                    cout << "print preorder " << endl;
-                    printNodesPrerder(this->root);
-                    break;
-                case 3:
-                    cout << "print postorder " << endl;
-                    printNodesPostrder(this->root);
-                    break;
-                
-                default:
-                    cout << "print inorder " << endl;
-                    printNodesInorder(this->root);
-                    break;
+                node = node->left;
             }
+            rootTemp->data = node->data;
+            // call recursive -> node that needs to be deleted and new root
+
+            rootTemp->right = remove(node->data, rootTemp->right);
+            return rootTemp;
         }
-        
-        int height(){
-            return getHeight(this->root);
+    }
+    Node<T> *reverseTree(Node<T> *rootTemp)
+    {
+        if (rootTemp == nullptr)
+        {
+            return rootTemp;
         }
-        void removeNode(T data){
-            this->root=remove(data, this->root);
+        Node<T> *rootTempLeft = reverseTree(rootTemp->left);
+        Node<T> *rootTempRight = reverseTree(rootTemp->right);
+        rootTemp->left = rootTempRight;
+        rootTemp->right = rootTempLeft;
+        return rootTemp;
+    }
+
+public:
+    Node<T> *root = nullptr;
+
+    void add(T data)
+    {
+        this->root = addNode(data, this->root);
+    }
+
+    void print(int order = 2)
+    {
+        switch (order)
+        {
+        case 1:
+            cout << "print preorder " << endl;
+            printNodesPrerder(this->root);
+            break;
+        case 3:
+            cout << "print postorder " << endl;
+            printNodesPostrder(this->root);
+            break;
+
+        default:
+            cout << "print inorder " << endl;
+            printNodesInorder(this->root);
+            break;
         }
-        void reverse(){
-            this->root=reverseTree(this->root);
-        }
+    }
+
+    int height()
+    {
+        return getHeight(this->root);
+    }
+    void removeNode(T data)
+    {
+        this->root = remove(data, this->root);
+    }
+    void reverse()
+    {
+        this->root = reverseTree(this->root);
+    }
 };
 
 int main()
 {
-    unique_ptr<BinaryTree<int>> binaryTree=make_unique<BinaryTree<int>>();
+    unique_ptr<BinaryTree<int>> binaryTree = make_unique<BinaryTree<int>>();
     binaryTree->add(100);
     binaryTree->add(50);
     binaryTree->add(500);
