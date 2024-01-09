@@ -140,6 +140,22 @@ private:
         rootTemp->right = rootTempLeft;
         return rootTemp;
     }
+    int binarySearch(Node<T> *rootTemp, int data)
+    {
+        if (rootTemp == nullptr)
+        {
+            return -1;
+        }
+        if (data == rootTemp->data)
+        {
+            return 1;
+        }
+        else if (data < rootTemp->data)
+        {
+            return binarySearch(rootTemp->left, data);
+        }
+        return binarySearch(rootTemp->right, data);
+    }
 
 public:
     Node<T> *root = nullptr;
@@ -181,6 +197,10 @@ public:
     {
         this->root = reverseTree(this->root);
     }
+    int binarySearchNode(int data)
+    {
+        return binarySearch(this->root, data);
+    }
 };
 
 int main()
@@ -203,8 +223,8 @@ int main()
     binaryTree->removeNode(50);
     // 1-preorder, 2-inorder, 3-postorder
     binaryTree->print(2);
-    binaryTree->reverse();
-    binaryTree->print(2);
     cout << "height: " << binaryTree->height() << endl;
+    int isFound = binaryTree->binarySearchNode(65);
+    cout << "is found: " << isFound << endl;
     return 0;
 }
