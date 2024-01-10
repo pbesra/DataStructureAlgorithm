@@ -3,3 +3,4 @@ output
 src/algorithms/build
 *.exe
 *.o
+build
