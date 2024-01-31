@@ -10,3 +10,6 @@ int main()
 
     return 0;
 }
+
+// unique_ptr -> make_unique
+// shared_ptr -> make_shared
