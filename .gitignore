@@ -4,3 +4,5 @@ src/algorithms/build
 *.exe
 *.o
 build
+src/dsa.csharp/dsa/bin
+src/dsa.csharp/dsa/obj
