@@ -1,9 +1,12 @@
-﻿namespace dsa.csharp;
+﻿using dsa.csharp.interviews_tests.blackbaud;
+
+namespace dsa.csharp;
 
 public class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Hello World!");
+        var res = new PrintFromFirstAndLast();
+        res.Output(res.Input().Count, res.Input());
     }
 }
