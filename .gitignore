@@ -9,3 +9,4 @@ src/dsa.csharp/dsa/obj
 .idea/
 bin/
 obj/
+.vs/
