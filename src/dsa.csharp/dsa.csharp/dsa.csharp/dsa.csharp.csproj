@@ -8,8 +8,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="algorithms\" />
-      <Folder Include="problem-statements\" />
+      <Compile Remove="algorithms\**" />
+      <Compile Remove="problem-statements\**" />
+      <EmbeddedResource Remove="algorithms\**" />
+      <EmbeddedResource Remove="problem-statements\**" />
+      <None Remove="algorithms\**" />
+      <None Remove="problem-statements\**" />
     </ItemGroup>
 
 </Project>
