@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\dsa.core\dsa.core.csproj" />
+    <Folder Include="Core\Implementations\" />
+    <Folder Include="Core\Interfaces\" />
   </ItemGroup>
 
 </Project>

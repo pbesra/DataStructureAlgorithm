@@ -1,4 +1,4 @@
-﻿namespace dsa.DataStructure
+﻿namespace dsa.core
 {
     public class Class1
     {
