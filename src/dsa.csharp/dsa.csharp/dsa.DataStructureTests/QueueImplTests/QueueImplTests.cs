@@ -22,9 +22,14 @@ namespace dsa.DataStructureTests.QueueImplTests
             }
             var dequeueData1 = _queueInt.Dequeue(); // 1
             var dequeueData2 = _queueInt.Dequeue(); // 2
-            //Assert
-            Assert.Equal(testData[0], dequeueData1);
-            Assert.Equal(testData[1], dequeueData2);
+            
+            _queueInt.Enqueue(110);
+            _queueInt.Enqueue(122);
+            _queueInt.Enqueue(128);
+            var ite=_queueInt.Dequeue();
+            
+             Assert.Equal(testData[0], dequeueData1);
+             Assert.Equal(testData[1], dequeueData2);
         }
     }
 }

@@ -6,71 +6,73 @@
         private int _capacity;
         private int _front;
         private int _rear;
+        private int _size;
 
         public QueueImpl()
         {
-            _capacity = 4;
-            _front = -1;
-            _rear = -1;
+            _capacity = 2;
+            _front = 0;
+            _rear = 0;
+            _size = 0;
             _data = new T[_capacity];
         }
-
-        public void Enqueue(T data)
+        
+        public void Enqueue(T item)
         {
-            int currentSize = Size();
-            if (currentSize == _capacity)
+            if (_size == 0 || _size == _capacity)
             {
                 Resize();
             }
-            _data[(_rear - 1) % _capacity] = data;  // 6, 10, 56, 16, 14, 18
-            _rear = (_rear + 1) % _capacity;
+            _data[(_rear)%_capacity] = item;
+            _rear++;
+            _size++;
         }
 
         public T Dequeue()
         {
             var item = Peek();
             _front = (_front + 1) % _capacity;
+            _size--;
             return item;
         }
 
         public T Peek()
         {
-            if (_rear == -1)
+            if (_size == 0)
             {
                 throw new InvalidOperationException("Queue is empty");
             }
-            return _data[_front];
+            return _data[(_front)%_capacity];
         }
 
         public bool IsEmpty()
         {
-            return _front == -1;
+            return _size == 0;
         }
 
         public void Clear()
         {
             _capacity = 0;
             _front = -1;
-            _rear = 0;
+            _rear = -1;
+            _size = 0;
         }
 
         public int Size()
         {
-            return _rear - _front + 1; // upper not inclusive example: [3, 5, 12, 2, 8], then front = 0, rear = 5, size = 5 - 0 = 5
+            return _size;
         }
 
-        public void Resize()
+        private void Resize()
         {
             _capacity = _capacity * 2;
             T[] newData = new T[_capacity];
-            int currentSize = Size();
-            for (int i = 0; i <= currentSize; i++)
+            for (int i = 0; i < _size; i++)
             {
-                newData[i] = _data[(_front + i) % currentSize];
+                newData[i] = _data[(_front + i) %_capacity];
             }
+
             _data = newData;
-            _front = 0;
-            _rear = currentSize;
         }
     }
 }
