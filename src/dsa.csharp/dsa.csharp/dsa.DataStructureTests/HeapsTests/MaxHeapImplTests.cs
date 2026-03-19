@@ -55,4 +55,5 @@ public class MaxHeapImplTests
         Assert.Equal(17, _maxHeap.Peek());
         Assert.Equal(items.Length+3, _maxHeap.Size());
     }
+    
 }

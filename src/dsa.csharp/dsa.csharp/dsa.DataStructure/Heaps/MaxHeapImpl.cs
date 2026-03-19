@@ -6,8 +6,6 @@ public class MaxHeapImpl
     private int _capacity;
     private int _size;
 
-
-
     public MaxHeapImpl()
     {
         
