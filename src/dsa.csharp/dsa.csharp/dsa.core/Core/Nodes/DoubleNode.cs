@@ -1,5 +1,5 @@
 ﻿
-namespace dsa.DataStructure.Node
+namespace dsa.core.Core.Nodes
 {
     public class DoubleNode<T>: Node<T>
     {

@@ -1,6 +1,6 @@
 ﻿using dsa.core.Core;
 using dsa.core.Core.Corebase;
-using dsa.DataStructure.Node;
+using dsa.core.Core.Nodes;
 
 namespace dsa.DataStructure.LinkedList
 {
