@@ -5,10 +5,10 @@ namespace dsa.DataStructure.Trees;
 public class BinarySearchTree<T> where T : IComparable<T>
 {
     private BstNode<T>? _root;
-    
+
     public void Add(T data)
     {
-        _root=AddNode(data, _root);
+        _root = AddNode(data, _root);
     }
 
     private BstNode<T>? AddNode(T data, BstNode<T>? currNode = null)
@@ -18,7 +18,7 @@ public class BinarySearchTree<T> where T : IComparable<T>
             currNode = new BstNode<T>(data);
             return currNode;
         }
-        else if(data.CompareTo(currNode.Value) <= 0)
+        else if (data.CompareTo(currNode.Value) <= 0)
         {
             currNode.Left = AddNode(data, currNode.Left);
         }
@@ -36,7 +36,7 @@ public class BinarySearchTree<T> where T : IComparable<T>
         PreOrder(currNode.Left, dataItems);
         PreOrder(currNode.Right, dataItems);
     }
-    
+
     private void InOrder(BstNode<T>? currNode, List<T> dataItems)
     {
         if (currNode == null) return;
@@ -44,7 +44,7 @@ public class BinarySearchTree<T> where T : IComparable<T>
         Console.WriteLine(currNode.Value);
         InOrder(currNode.Right, dataItems);
     }
-    
+
     private void PostOrder(BstNode<T>? currNode, List<T> dataItems)
     {
         if (currNode == null) return;
@@ -76,11 +76,19 @@ public class BinarySearchTree<T> where T : IComparable<T>
 
     public void Remove(T data)
     {
-        
+    }
+
+    private int Height(BstNode<T>? currNode)
+    {
+        if (currNode == null)
+        {
+            return -1;
+        }
+        return Math.Max(Height(currNode.Left), Height(currNode.Right)) + 1;
     }
 
     public int Height()
     {
-        return 0;
+        return Height(this._root);
     }
 }
