@@ -41,7 +41,7 @@ public class BinarySearchTree<T> where T : IComparable<T>
     {
         if (currNode == null) return;
         InOrder(currNode.Left, dataItems);
-        Console.WriteLine(currNode.Value);
+        dataItems.Add(currNode.Value);
         InOrder(currNode.Right, dataItems);
     }
 
@@ -50,7 +50,7 @@ public class BinarySearchTree<T> where T : IComparable<T>
         if (currNode == null) return;
         PostOrder(currNode.Left, dataItems);
         PostOrder(currNode.Right, dataItems);
-        Console.WriteLine(currNode.Value);
+        dataItems.Add(currNode.Value);
     }
 
     public List<T> PrintPreOrder()
