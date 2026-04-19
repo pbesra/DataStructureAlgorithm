@@ -17,6 +17,11 @@ public class BinarySearchTreeTests
         var bstItems=bst.PrintPreOrder();
         
         var expectedPreOrderItems = new List<int> {9, 4, 1, 3, 8, 5, 7};
+
+        foreach (var bstItem in bstItems)
+        {
+            
+        }
         
         // Assert
         for (var i=0;i<expectedPreOrderItems.Count;i++)
@@ -91,5 +96,109 @@ public class BinarySearchTreeTests
 
         var height = bst.Height();
         Assert.Equal(expectedHeight, height);
+    }
+    
+    // remove leaf node
+    [Fact]
+    public void TestsBstAddAndRemoveNode_LeafNode()
+    {
+        // Arrange
+        var items = new List<int> {9, 4, 1, 8, 5, 7, 3 };
+        var bst=new BinarySearchTree<int>();
+        foreach (var bstItem in items)
+        {
+            bst.Add(bstItem);
+        }
+        
+        bst.Remove(3);
+
+        var sortedItems = items.Select(bstItem => bstItem).Order().ToList();
+        sortedItems.Remove(3);
+        
+        var bstItems=bst.PrintInOrder();
+        
+        // Assert
+        for (var i=0;i<items.Count-1;i++)
+        {
+            Assert.Equal(sortedItems.ElementAt(i),bstItems[i]);
+        }
+    }
+    
+    [Fact]
+    public void TestsBstAddAndRemoveNode_NoLeftNode()
+    {
+        // Arrange
+        var items = new List<int> {9, 4, 1, 8, 5, 7, 3 };
+        var bst=new BinarySearchTree<int>();
+        foreach (var bstItem in items)
+        {
+            bst.Add(bstItem);
+        }
+
+        int removedNodeItem = 5;
+        bst.Remove(removedNodeItem);
+
+        var sortedItems = items.Select(bstItem => bstItem).Order().ToList();
+        sortedItems.Remove(removedNodeItem);
+        
+        var bstItems=bst.PrintInOrder();
+        
+        // Assert
+        for (var i=0;i<items.Count-1;i++)
+        {
+            Assert.Equal(sortedItems.ElementAt(i),bstItems[i]);
+        }
+    }
+    
+    [Fact]
+    public void TestsBstAddAndRemoveNode_NoRightNode()
+    {
+        // Arrange
+        var items = new List<int> {9, 4, 1, 8, 5, 7, 3 };
+        var bst=new BinarySearchTree<int>();
+        foreach (var bstItem in items)
+        {
+            bst.Add(bstItem);
+        }
+
+        int removedNodeItem = 8;
+        bst.Remove(removedNodeItem);
+
+        var sortedItems = items.Select(bstItem => bstItem).Order().ToList();
+        sortedItems.Remove(removedNodeItem);
+        
+        var bstItems=bst.PrintInOrder();
+        
+        // Assert
+        for (var i=0;i<items.Count-1;i++)
+        {
+            Assert.Equal(sortedItems.ElementAt(i),bstItems[i]);
+        }
+    }
+    
+    [Fact]
+    public void TestsBstAddAndRemoveNode_HasBothLeftAndRightNode()
+    {
+        // Arrange
+        var items = new List<int> {9, 4, 1, 8, 5, 7, 3 };
+        var bst=new BinarySearchTree<int>();
+        foreach (var bstItem in items)
+        {
+            bst.Add(bstItem);
+        }
+
+        int removedNodeItem = 4;
+        bst.Remove(removedNodeItem);
+
+        var sortedItems = items.Select(bstItem => bstItem).Order().ToList();
+        sortedItems.Remove(removedNodeItem);
+        
+        var bstItems=bst.PrintInOrder();
+        
+        // Assert
+        for (var i=0;i<items.Count-1;i++)
+        {
+            Assert.Equal(sortedItems.ElementAt(i),bstItems[i]);
+        }
     }
 }
