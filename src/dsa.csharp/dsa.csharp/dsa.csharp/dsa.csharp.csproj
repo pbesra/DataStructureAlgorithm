@@ -22,6 +22,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\dsa.core\dsa.core.csproj" />
+      <ProjectReference Include="..\dsa.interview.preparation\dsa.interview.preparation.csproj" />
     </ItemGroup>
 
 </Project>

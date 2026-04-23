@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dsa.AlgorithmsTests", "dsa.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dsa.core", "dsa.core\dsa.core.csproj", "{ED7D8028-9DF0-4398-B254-0D7F18435062}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dsa.problem.statements", "dsa.problem.statements\dsa.problem.statements.csproj", "{270BEC15-E4F3-4934-B6E0-6C2BAFD7B1C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dsa.interview.preparation", "dsa.interview.preparation\dsa.interview.preparation.csproj", "{5BF4E9EC-8BAE-4E48-AD83-AC14364969C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{ED7D8028-9DF0-4398-B254-0D7F18435062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED7D8028-9DF0-4398-B254-0D7F18435062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED7D8028-9DF0-4398-B254-0D7F18435062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{270BEC15-E4F3-4934-B6E0-6C2BAFD7B1C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{270BEC15-E4F3-4934-B6E0-6C2BAFD7B1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{270BEC15-E4F3-4934-B6E0-6C2BAFD7B1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{270BEC15-E4F3-4934-B6E0-6C2BAFD7B1C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BF4E9EC-8BAE-4E48-AD83-AC14364969C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF4E9EC-8BAE-4E48-AD83-AC14364969C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF4E9EC-8BAE-4E48-AD83-AC14364969C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF4E9EC-8BAE-4E48-AD83-AC14364969C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
