@@ -21,6 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\dsa.Algorithms\dsa.Algorithms.csproj" />
       <ProjectReference Include="..\dsa.core\dsa.core.csproj" />
       <ProjectReference Include="..\dsa.interview.preparation\dsa.interview.preparation.csproj" />
       <ProjectReference Include="..\dsa.problem.statements\dsa.problem.statements.csproj" />

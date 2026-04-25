@@ -1,4 +1,5 @@
-﻿using dsa.csharp.Extensions;
+﻿using dsa.Algorithms.design_patterns;
+using dsa.csharp.Extensions;
 using dsa.problem.statements.blackbaud_coding;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,7 +19,6 @@ public class Program
 
     public static void InterviewPreparation()
     {
-        Blackbaud blackbaud = new Blackbaud();
-        blackbaud.RemoveSpecialCharacters("yau-oo-l--kaiaus--");
+        
     }
 }
