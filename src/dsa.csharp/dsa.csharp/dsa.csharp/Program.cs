@@ -1,5 +1,5 @@
 ﻿using dsa.csharp.Extensions;
-using dsa.interview.preparation.garbage_example;
+using dsa.problem.statements.blackbaud_coding;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace dsa.csharp;
@@ -18,7 +18,7 @@ public class Program
 
     public static void InterviewPreparation()
     {
-        Animal animal = new Tiger();
-        animal.Speak();
+        Blackbaud blackbaud = new Blackbaud();
+        blackbaud.RemoveSpecialCharacters("yau-oo-l--kaiaus--");
     }
 }

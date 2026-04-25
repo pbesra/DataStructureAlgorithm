@@ -23,6 +23,7 @@
     <ItemGroup>
       <ProjectReference Include="..\dsa.core\dsa.core.csproj" />
       <ProjectReference Include="..\dsa.interview.preparation\dsa.interview.preparation.csproj" />
+      <ProjectReference Include="..\dsa.problem.statements\dsa.problem.statements.csproj" />
     </ItemGroup>
 
 </Project>

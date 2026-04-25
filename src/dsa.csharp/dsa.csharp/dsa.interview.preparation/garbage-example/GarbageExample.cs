@@ -30,3 +30,58 @@ public class Tiger: Animal
         Console.WriteLine("Tiger speaks");
     }
 }
+
+public abstract class Payment
+{
+    public abstract void Pay();
+    public abstract void Cancel();
+    public abstract void Refund();
+    public abstract void Chargeback();
+    public void HasPayment()
+    {
+        Console.WriteLine("Has payment");
+    }
+}
+
+public class RazorPay : Payment
+{
+    public override void Pay()
+    {
+        Console.WriteLine("RazorPay pay");
+    }
+
+    public override void Cancel()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Refund()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Chargeback()
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class Earth
+{
+    public delegate void GetArea(int radius);
+}
+
+public class Area
+{
+    public void CalculateArea(int radius)
+    {
+        Console.WriteLine(2*Math.PI*radius);
+    }
+
+    public void CalculateVolume(Func<double, double, double, double> func)
+    {
+        var volume = func(1,2,3);
+        Console.WriteLine(volume);
+    }
+}
+
