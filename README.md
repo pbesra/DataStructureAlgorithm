@@ -1,25 +1,103 @@
 # Data Structures & Algorithms
 
-This repository contains implementations and exercises categorized into:
-- **data-structure**
-- **algorithms**
-- **problem-statements**
+This repository contains implementations and exercises for data structures and algorithms in C++ and C#.
+
+Key areas:
+- `src/dsa.cpp/` — C++ algorithms, data structures, and problem statements
+- `src/dsa.csharp/` — C# solutions, libraries and tests (contains a `.sln` and multiple projects)
+
+Purpose: quick practice, reference implementations, and interview prep.
 
 ---
 
-## 🚀 Purpose
+## Repository layout
 
-This repo is for quick experimentation and practice with data structures, algorithms, and interview problems. Many examples are small snippets — for those, it's convenient to run a single `.cs` file without a full `.csproj`.
+- `src/dsa.cpp/algorithms/` — sorting, graph algorithms, search
+- `src/dsa.cpp/data-structure/` — lists, trees, stacks, queues, heaps
+- `src/dsa.cpp/problem-statements/` — solved problems and challenges
+- `src/dsa.csharp/` — C# solution, library projects and tests (uses .NET SDK)
+- `templates/` — small example templates and starter files
 
 ---
 
-## ⚡ Run a Single C# File — All Options
+## Languages & tooling
+
+- C++: code is plain source files. Build with `g++`/`clang++` or MSVC (Visual Studio).
+- C#: projects use the .NET SDK (`dotnet`). Requires .NET 8+ to build/run the included solution.
+
+---
+
+## Quick start — C++ examples
+
+To compile and run a single example (cross-platform with `g++`):
+
 ```bash
-dotnet script FileName.cs
+g++ -std=c++17 -O2 src/dsa.cpp/algorithms/binary-search.cpp -o bin/binary-search
+./bin/binary-search
+```
 
-> **Requirements:** .NET SDK 8+ for `--source` (you have 8.0.415), or install `dotnet-script` for maximum compatibility.
+On Windows with MSVC (Developer Command Prompt):
 
+```powershell
+cl /EHsc /std:c++17 src\dsa.cpp\algorithms\binary-search.cpp /Fe:bin\binary-search.exe
+bin\binary-search.exe
+```
 
-### Option A — `dotnet-script` (recommended, works anywhere)
-Install once (global):
+Notes:
+- Many examples are small, standalone programs — compile the single `.cpp` file you want to run.
+- If an example depends on other files, compile them together or create a small CMake project.
+
+---
+
+## Quick start — C# projects
+
+Build and run the full solution (recommended):
+
+```bash
+cd src/dsa.csharp/dsa.csharp
+dotnet build
+dotnet run --project dsa.csharp/dsa.csharp.csproj
+```
+
+Run tests:
+
+```bash
+dotnet test
+```
+
+Run a single C# script file (convenient for small snippets):
+
+Option A — using `dotnet-script` (recommended):
+
+```bash
 dotnet tool install -g dotnet-script
+dotnet script path/to/FileName.cs
+```
+
+Option B — using `dotnet` interactive source (requires .NET 8+):
+
+```bash
+dotnet run --source path/to/FileName.cs
+```
+
+---
+
+## Contribution & style
+
+- Keep implementations small and focused.
+- Add tests for non-trivial algorithms in the C# test projects under `dsa.DataStructureTests`.
+- Open PRs with clear descriptions and a short test or example demonstrating the change.
+
+---
+
+## Suggested next steps
+
+- Add a small `CMakeLists.txt` for the C++ folder to simplify building multiple examples.
+- Add CI (GitHub Actions) to build C++ examples and run `dotnet test` for the C# projects.
+
+---
+
+If you'd like, I can:
+- add a `CMakeLists.txt` for `src/dsa.cpp` and a small runner script, or
+- create a GitHub Actions workflow that builds C++ and runs the C# tests.
+Tell me which you'd prefer and I'll implement it.
