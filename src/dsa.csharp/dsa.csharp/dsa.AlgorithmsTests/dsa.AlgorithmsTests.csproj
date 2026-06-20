@@ -17,6 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\dsa.Algorithms\dsa.Algorithms.csproj" />
+    <ProjectReference Include="..\dsa.core\dsa.core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 

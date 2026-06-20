@@ -101,3 +101,8 @@ If you'd like, I can:
 - add a `CMakeLists.txt` for `src/dsa.cpp` and a small runner script, or
 - create a GitHub Actions workflow that builds C++ and runs the C# tests.
 Tell me which you'd prefer and I'll implement it.
+
+## Run test with verbose
+```bash
+dotnet test --filter "Test method name" --logger "console;verbosity=detailed"
+```
