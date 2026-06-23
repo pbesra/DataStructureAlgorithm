@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\dsa.core\dsa.core.csproj" />
+  </ItemGroup>
+
 </Project>

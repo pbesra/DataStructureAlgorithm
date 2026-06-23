@@ -11,14 +11,6 @@ public class Program
     {
         var services = new ServiceCollection();
         services.ConfigureServices();
-
-        InterviewPreparation();
-
-
-    }
-
-    public static void InterviewPreparation()
-    {
-        
+        Console.WriteLine("Hello Data structure and Algorithms");
     }
 }
