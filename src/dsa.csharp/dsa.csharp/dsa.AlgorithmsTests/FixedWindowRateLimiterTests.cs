@@ -34,7 +34,7 @@ namespace dsa.AlgorithmsTests
                 if (val % 2 == 0)
                 {
                     Console.WriteLine($"Sleep started -- {val}");
-                    Thread.Sleep(1000);
+                    Thread.Sleep(300);
                     Console.WriteLine($"Sleep ended -- {val}");
                 }
             }
